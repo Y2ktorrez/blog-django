@@ -1,0 +1,25 @@
+#Para poder usar Django
+Django==4.2.16
+
+#Instalamos el Framework
+djangorestframework==3.15.2
+
+#Para poder correr aplicaciones asgi
+uvicorn==0.32.0
+
+#Para Redis
+channels==4.1.0
+channels-redis==4.2.0
+django-redis==5.4.0
+
+#Para los archivos estaticos
+whitenoise==6.8.2
+
+#Para poder conectarnos a la base de datos
+psycopg2==2.9.4
+
+#Para manejar las variables de entorno
+django-environ==0.9.0
+
+#Para majenar las imagenes en Python
+pillow==11.0.0
