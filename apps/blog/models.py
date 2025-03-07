@@ -76,7 +76,7 @@ class Heading(models.Model):
 
     title = models.CharField(max_length=128)
     slug = models.CharField(max_length=255)
-    level = models.IntegerField(
+    lavel = models.IntegerField(
         choices= (
             (1, 'H1'),
             (2, 'H2'),

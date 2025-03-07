@@ -9,6 +9,13 @@ class CategoryAdmin(admin.ModelAdmin):
     list_filter = ('parent',)
     ordering = ('name'),
 
+class HeadingInline(admin.TabularInline):
+    model = Heading
+    extra = 1
+    fields = ('title', 'lavel', 'order', 'slug')
+    prepopulated_fields = {'slug': ('title',)}
+    ordering = ('order',)
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'status', 'category', 'created_at', 'updated_at')
@@ -25,3 +32,13 @@ class PostAdmin(admin.ModelAdmin):
             'fields': ('status', 'created_at', 'updated_at')
         }),
     )
+    inlines = [HeadingInline]
+
+
+# @admin.register(Heading)
+# class HeadingAdmin(admin.ModelAdmin):
+#     list_display = ('title', 'post', 'lavel', 'order')
+#     search_fields = ('title', 'post__title')
+#     list_filter = ('lavel', 'post')
+#     ordering = ('post', 'order')
+#     prepopulated_fields = {'slug': ('title',)}
