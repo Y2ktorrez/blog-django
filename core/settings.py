@@ -46,6 +46,8 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'rest_framework',
     'channels',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 #Aqui vienen incluida las aplicaciones que nosotros creemos en nuestro proyecto
@@ -55,6 +57,9 @@ PROJECT_APPS = [
 
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
+
+CKEDITOR_CONFIGS = {'default': {'toolbar': 'full', 'autoParagraph': False}}
+CKEDITOR_UPLOAD_PATH = "media/"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

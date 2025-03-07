@@ -3,6 +3,8 @@ from django.db import models
 from django.utils import timezone
 from django.utils.text import slugify
 
+from ckeditor.fields import RichTextField #Importamos el CKEditor
+
 def blog_thumbnail_path(instance, filename):
     return 'blog/{0}/{1}'.format(instance.title, filename)
 
@@ -18,8 +20,8 @@ class Category(models.Model):
 
     name = models.CharField(max_length=128)
     title = models.CharField(max_length=255, blank=True, null=True)
-    description = models.TextField()
-    thumbnail = models.ImageField(upload_to=category_thumbnail_path)
+    description = models.TextField(blank=True, null=True)
+    thumbnail = models.ImageField(upload_to=category_thumbnail_path, blank=True, null=True)
     slug = models.CharField(max_length=128)
 
     def __str__(self):
@@ -42,7 +44,7 @@ class Post(models.Model):
 
     title = models.CharField(max_length=128)
     description = models.CharField(max_length=256)
-    content = models.TextField()
+    content = RichTextField()                                #Agregamos el CKEditor
     thumbnail = models.ImageField(upload_to=blog_thumbnail_path)
 
     keywords = models.CharField(max_length=128)

@@ -23,3 +23,6 @@ django-environ==0.9.0
 
 #Para majenar las imagenes en Python
 pillow==11.0.0
+
+#Para la visualizacion mejora en la parte del administrador
+django-ckeditor==6.7.1
